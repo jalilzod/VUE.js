@@ -1,10 +1,10 @@
 <script setup>
-import CompuedProp from './components/03ComputedProperties/ComputedProp.vue'
+import ConditionRef from './components/04ConditionalRendering/ConditionRef.vue'
 import o1Event from './components/01Events/o1Event.vue'
 </script>
 
 <template>
-  <CompuedProp />
+  <ConditionRef />
 </template>
 
 <style scoped></style>
