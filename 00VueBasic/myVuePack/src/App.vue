@@ -1,10 +1,10 @@
 <script setup>
-import o2UserForm from './components/01Events/o2UserForm.vue'
+import ReactiveComponent from './components/02ReactiveComponent/ReactiveComponent.vue'
 import o1Event from './components/01Events/o1Event.vue'
 </script>
 
 <template>
-  <o2UserForm />
+  <ReactiveComponent />
 </template>
 
 <style scoped></style>
