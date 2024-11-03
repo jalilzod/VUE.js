@@ -1,10 +1,10 @@
 <script setup>
-import ReactiveComponent from './components/02ReactiveComponent/ReactiveComponent.vue'
+import CompuedProp from './components/03ComputedProperties/ComputedProp.vue'
 import o1Event from './components/01Events/o1Event.vue'
 </script>
 
 <template>
-  <ReactiveComponent />
+  <CompuedProp />
 </template>
 
 <style scoped></style>
