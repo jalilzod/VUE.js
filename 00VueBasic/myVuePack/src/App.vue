@@ -1,9 +1,11 @@
 <script setup>
-import AllBeginning from './components/00AllBeginning.vue'
+import o3globalStyle from './components/o3globalStyle.vue'
+import o3hChild from './components/o3hChild.vue'
 </script>
 
 <template>
-  <AllBeginning />
+  <o3globalStyle />
+  <o3hChild />
 </template>
 
 <style scoped></style>
