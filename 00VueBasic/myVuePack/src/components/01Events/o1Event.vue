@@ -38,4 +38,16 @@ function decrement() {
 .btn:active {
   background-color: darkgray;
 }
+
+.head-text{
+  font-size: 20px;
+  color: darkred;
+}
+
+.parag-text{
+  background-color: rgb(32, 31, 31);
+  color: white;
+  padding: 10px 20px;
+}
+
 </style>
