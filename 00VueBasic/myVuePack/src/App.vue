@@ -1,5 +1,5 @@
 <script setup>
-import AllBeginning from './components/AllBeginning.vue'
+import AllBeginning from './components/00AllBeginning.vue'
 </script>
 
 <template>
