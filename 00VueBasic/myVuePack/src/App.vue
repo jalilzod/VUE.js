@@ -1,11 +1,9 @@
 <script setup>
-import o3globalStyle from './components/o3globalStyle.vue'
-import o3hChild from './components/o3hChild.vue'
+import o1Event from './components/01Events/o1Event.vue'
 </script>
 
 <template>
-  <o3globalStyle />
-  <o3hChild />
+  <o1Event />
 </template>
 
 <style scoped></style>
