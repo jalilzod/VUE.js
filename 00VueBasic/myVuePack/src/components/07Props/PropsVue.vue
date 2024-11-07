@@ -1,15 +1,27 @@
 
 
 <script setup>
-  const props = defineProps(['name','last']);
+  // const props = defineProps(['name','last']);
  //we cannot change the value of propss
-  console.log(props);
+  //console.log(props);
+
+  defineProps({
+    users: Array,
+    userInfo: Object
+  })
+
 </script>
 
 
 <template>
-  <h1>{{ props.name  }}</h1>
-  <h1>{{ props.last  }}</h1>
+
+  <ul v-for="(user,index) in users" :key="index">
+      <li>{{ user }}</li>
+  </ul>
+  <hr>
+  <ul v-for="(userIn,index) in userInfo" :key="index">
+      <li>{{ userIn }}</li>
+  </ul>
 
 </template>
 
