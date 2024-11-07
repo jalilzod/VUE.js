@@ -1,17 +1,33 @@
 <script setup>
-import ProvInject from './components/11ProvideInject/ProvInject.vue'
+import PracticeComponent from './components/11ProvideInject/PracticeComponent.vue'
 import o2UserForm from './components/01Events/o2UserForm.vue'
 import o1Event from './components/01Events/o1Event.vue'
-import{ref} from 'vue'
-// const firstName = ref('Ming');
-// const lastName = ref('Yuan');
+import {provide} from 'vue'
+
+provide(
+  'admin',
+  ['ming','yuan','yang'],
+)
+
+provide(
+  'games',{
+    id:1,
+    title:'Mafia',
+    genre: ['action','advanture','rpg'],
+    platform: ['pc','xBox','PlayStation'],
+    developer: {
+      name: 'mingyuan',
+      location: 'Shanghai',
+      teamSize: 50
+    }
+  })
 
 
 
 </script>
 
 <template>
-   <ProvInject />
+   <PracticeComponent />
 </template>
 
 <style scoped></style>
