@@ -2,11 +2,11 @@
 import o2UserForm from './components/01Events/o2UserForm.vue'
 import o1Event from './components/01Events/o1Event.vue'
 
-import MountUn from './components/12LifeCycle/MountUn.vue'
+import OneComponent from './components/13DynamicComponent/OneComponent.vue'
 
 </script>
 
 
 <template>
-  <MountUn />
+  <OneComponent />
 </template>
