@@ -1,12 +1,13 @@
 <script setup>
 import o2UserForm from './components/01Events/o2UserForm.vue'
 import o1Event from './components/01Events/o1Event.vue'
+import ToDo from './projects/00ToDoApp/ToDo.vue'
 
-import OneComponent from './components/13DynamicComponent/OneComponent.vue'
+
 
 </script>
 
 
 <template>
-  <OneComponent />
+  <ToDo />
 </template>
