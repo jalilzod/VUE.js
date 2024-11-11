@@ -2,17 +2,20 @@
 import {ref} from 'vue'
 
 const newTask = ref('');
-const tasks = ref([]);
-
+let theTasks  = ref(JSON.parse(localStorage.getItem('theTasks'))||[]);
 const addTask = ()=>{
+
   if(newTask.value.trim()!==''){
-    tasks.value.push(newTask.value);
-    newTask.value = '';
+
+    theTasks.value.push(newTask.value);
+    localStorage.setItem('theTasks',JSON.stringify(theTasks.value));
+
   }
 }
 
 const remove = (index)=>{
-  tasks.value.splice(index,1);
+  theTasks.value.splice(index,1);
+  localStorage.setItem('theTasks',JSON.stringify(theTasks.value));
 }
 
 </script>
@@ -28,7 +31,7 @@ const remove = (index)=>{
       <button class="btn incrBtn" @click="addTask">Add</button>
     </div>
     <div class="listOfTasks">
-      <div v-for="(task,index) in tasks" :key="index" class="btnInput">
+      <div v-for="(task,index) in theTasks" :key="index" class="btnInput">
         <p class="theTask">{{ task }}</p>
         <button @click="remove(index)" class="btn decrBtn locBtn">Delete</button>
       </div>
@@ -58,6 +61,14 @@ body{
     justify-content: center;
     border-radius: 10px;
     align-self: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
   }
 
   .addPart{
@@ -77,6 +88,7 @@ body{
     border-radius: 3px;
     width: 200px;
     text-wrap: wrap;
+    margin-bottom: 0.1rem;
   }
 
   .listOfTasks{
@@ -88,6 +100,6 @@ body{
     align-items: center;
     justify-content: space-around;
     width: 100%;
-
+    row-gap: 0.5rem;
   }
 </style>
