@@ -40,7 +40,7 @@ const toggleAccor = (index)=>{
     <div v-for="(item,index) in items" :key="index" class="acc">
       <div class="header" @click="toggleAccor(index)">
           {{ item.title }}
-          <span>{{ item.open?"▼":"▶"}}</span>
+          <span class="icon">{{ item.open?"▼":"▶"}}</span>
       </div>
 
       <div v-show="item.open">
@@ -83,6 +83,10 @@ const toggleAccor = (index)=>{
   .header{
     font-size: 25px;
     font-weight: bold;
+  }
+
+  .icon{
+    color: rgb(227, 227, 227);
   }
 
 </style>
