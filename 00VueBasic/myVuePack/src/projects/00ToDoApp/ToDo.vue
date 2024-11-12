@@ -102,4 +102,9 @@ body{
     width: 100%;
     row-gap: 0.5rem;
   }
+
+  .btn{
+    cursor: pointer;
+  }
+
 </style>
