@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reactiviy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+  <div id="app">
+    
+    <h2 v-if="isToggled">Welcome home 🏠</h2>
+    <h2 v-else>Please Log In 🔐</h2>
+
+    <button @click="toggleOnOff">{{ isToggled ? 'Logout' : 'Login' }}</button>
+
+    <button @click="show=!show">{{show?'Hide details🔼':'See details🔽'}}</button>
+    <h2 v-if="show">This is description about our courses...</h2>
+  </div>
+    
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return {
+          isToggled: false,
+          show: false
+        }
+      },
+      methods: {
+        toggleOnOff(){
+          this.isToggled = !this.isToggled;
+        }
+      }
+    })
+    // 📌 What is mount?
+    // It means “attach” or “connect” the Vue app to an HTML element.
+    // Here, we attach Vue to the element with id="app"
+    app.mount('#app')
+  </script>
+</body>
+</html>

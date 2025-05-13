@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reactiviy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+  <div id="app">
+    
+    <img :class="styleClass" v-if="isDark" :src="darkURL" alt="icon">
+    <img :class="styleClass" v-else :src="nightURL" alt="icon">
+    <h2 >{{isDark?'Good Night!':'Good Morining'}}</h2>
+    <button @click="switchMode">{{isDark?'Day Mode':'Night Mode'}}</button>
+  </div>
+    
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return {
+          isDark: true,
+          darkURL: './dark.png',
+          nightURL: './night.png',
+          styleClass: 'icon'
+        }
+      },
+      methods: {
+        toggleOnOff(){
+          this.isToggled = !this.isToggled;
+        },
+        switchMode(){
+          this.isDark = !this.isDark;
+        }
+      }
+    })
+    // 📌 What is mount?
+    // It means “attach” or “connect” the Vue app to an HTML element.
+    // Here, we attach Vue to the element with id="app"
+    app.mount('#app')
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+*{
+    background-color: rgb(8, 44, 95);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+
+button{
+    border: 0;
+    background-color: darkred;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+button:hover{
+    background-color: rgb(122, 2, 2);
+    color: gray;
+    
+}
+
+img{
+    width: 400px;
+    height: 200px;
+    object-fit: fill;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+a{
+    width: 200px;
+    text-decoration: none;
+    background-color: rgb(10, 86, 208);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a:hover{
+    background-color: rgb(8, 69, 167);
+    color: gray;
+}

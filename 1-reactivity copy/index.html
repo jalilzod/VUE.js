@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reactiviy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+  <div id="app">
+    <span>{{ message }}</span><br>
+    <span>{{ age }}</span><br>
+    <span>{{ isMarried }}</span><br>
+    <button @click="changeText">Click here</button>
+    <button @click="changeAge">Change Age</button>
+    <button @click="changeStatus">Change Status</button>
+
+
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          age:'1998',
+          isMarried:false
+        }
+      },
+      methods: {
+        changeText(){
+          this.message = 'Button has been clicked!!';
+        },
+        changeAge(){
+          this.age = 2000;
+        },
+        changeStatus(){
+          this.isMarried = true;
+        }
+      }
+    })
+
+    // 📌 What is mount?
+    // It means “attach” or “connect” the Vue app to an HTML element.
+    // Here, we attach Vue to the element with id="app"
+    app.mount('#app')
+  </script>
+</body>
+</html>

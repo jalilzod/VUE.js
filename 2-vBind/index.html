@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reactiviy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+  <div id="app">
+    
+    <img :src="img" alt="VueLogo"><br>
+    <button @click="nextFoto">Next</button>
+    <button @click="prevFoto">Previous</button>
+    <a :href="gptLink">Ask chatGPT</a>
+    <a :href="grokLink">Ask grok</a>
+
+  </div>
+    
+  <script>
+   const app = Vue.createApp({
+    data(){
+      return{
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLIKYLESZgss5Mt-QeGOrgr6qlO7GEprDGHw&s',
+        gptLink: 'https://chatgpt.com/',
+        grokLink: 'https://grok.com/chat/e6df3b5b-993b-45a6-8bf0-b86ba37f4109',
+
+      }
+    },
+    methods: {
+        nextFoto(){
+          this.img = 'https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_23_638415660325320296_kham-pha-vuejs-la-gi-khai-quat-ve-tinh-nang-va-cac-uu-diem-noi-troi-cua-vuejs-0.jpg';
+        },
+        prevFoto(){
+          this.img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLIKYLESZgss5Mt-QeGOrgr6qlO7GEprDGHw&s';
+        }
+    }
+   })
+
+    // 📌 What is mount?
+    // It means “attach” or “connect” the Vue app to an HTML element.
+    // Here, we attach Vue to the element with id="app"
+    app.mount('#app')
+  </script>
+</body>
+</html>
