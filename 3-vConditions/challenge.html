@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/vue@3"></script>
 </head>
-<body>
-  <div id="app">
+<body >
+  <div id="app" :class="bodyClass">
     
     <img :class="styleClass" v-if="isDark" :src="darkURL" alt="icon">
     <img :class="styleClass" v-else :src="nightURL" alt="icon">
     <h2 >{{isDark?'Good Night!':'Good Morining'}}</h2>
-    <button @click="switchMode">{{isDark?'Day Mode':'Night Mode'}}</button>
+    <button :class="[isDark?dark_icon:light_icon]" @click="switchMode">{{isDark?'Day Mode':'Night Mode'}}</button>
   </div>
     
   <script>
@@ -23,7 +23,10 @@
           isDark: true,
           darkURL: './dark.png',
           nightURL: './night.png',
-          styleClass: 'icon'
+          styleClass: 'icon',
+          dark_icon: 'dark-icon',
+          light_icon: 'light-icon',
+          bodyClass: 'dark-mode'
         }
       },
       methods: {
@@ -32,6 +35,8 @@
         },
         switchMode(){
           this.isDark = !this.isDark;
+          this.bodyClass = this.isDark?'dark-mode':'light-mode';
+          document.body.className = this.bodyClass;
         }
       }
     })
