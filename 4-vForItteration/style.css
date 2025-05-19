@@ -1,0 +1,98 @@
+
+button{
+    border: 0;
+    background-color: darkred;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+button:hover{
+    background-color: rgb(122, 2, 2);
+    color: gray;
+    
+}
+
+img{
+    width: 400px;
+    height: 200px;
+    object-fit: fill;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+a{
+    width: 200px;
+    text-decoration: none;
+    background-color: rgb(10, 86, 208);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a:hover{
+    background-color: rgb(8, 69, 167);
+    color: gray;
+}
+
+h2{
+    color: rgb(0, 0, 0);
+}
+
+.icon{
+    margin: 20px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.dark-icon{
+    color: #fff;
+}
+.light-icon{
+    color:#ffffff;
+}
+
+.dark-mode {
+  background-color: #111;
+  color: white;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: black;
+}
+
+
+.books{
+    background-color: rgb(8, 96, 203);
+    width: 520px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.books li{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    color: white;
+}
+.books li img{
+    height: auto;
+    width: auto;
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}

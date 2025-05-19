@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Vfor Itteration</title>
+</head>
+<body>
+    
+    <div id="app">
+        <ul class="books">
+            <li v-for="book in books" :key="book">
+                 {{book.name}} by {{book.author}}  price: {{book.price}}
+                <img @click="changeImg(book)" :src="book.isClicked?icons[1]:icons[0]" alt="like button">
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+
+<script>
+
+    const app = Vue.createApp({
+        data(){
+            return{
+                icons:['/images/likeEmpt.png','/images/likeFill.png'],
+                books:[
+                    {
+                        name: 'C Prime',
+                        author: 'Stephen Prata',
+                        price: 23.5,
+                        isClicked:false
+                    },
+                    {
+                        name: 'Java Core',
+                        author: 'Cay S.Horstmann',
+                        price: 30.5,
+                         isClicked:false
+                    },
+                    {
+                        name: 'Spring Framwork',
+                        author: 'Craig Walls',
+                        price: 15.5,
+                         isClicked:false
+                    },
+                    {
+                        name: 'OS',
+                        author: 'Abraham Silberchatz',
+                        price: 23.5,
+                         isClicked:false
+                    },
+                ]
+            }
+        },
+
+        methods: {
+            changeImg(book){
+                book.isClicked = !book.isClicked;
+            }
+        }
+    })
+
+
+    app.mount('#app')
+
+
+</script>
+
+
+
+
+</html>
