@@ -36,7 +36,7 @@
             <input v-model="newBook.name"  placeholder="Book name">
             <input v-model="newBook.author" placeholder="Book author">
             <input v-model.number="newBook.price" type="number" placeholder="Book price">
-            <img :src="addStore" alt="add button">
+            <img @click="addStore" :src="addIcon" alt="add button">
         </div>
 
     </div>
@@ -76,12 +76,17 @@
                          isClicked:false
                     },
                 ],
+                newBook:{
+                    name:'',
+                    author:'',
+                    price:0
+                },
                 cart:[
                 
                 ],
                 delIcon: '/images/del.png',
                 cartIcon: '/images/shop.png',
-                addStore: '/images/addBtn.png',
+                addIcon: '/images/addBtn.png',
                 tottal: 0
 
             }
@@ -104,17 +109,22 @@
             addToCart(book){
                 this.cart.push(book);
                 this.tottal+=book.price;
+            },
+
+            addStore(){
+
+                if(this.newBook.name&&this.newBook.author&&this.newBook.price>0){
+                    this.books.push({...this.newBook});
+                    this.name = '';
+                    this.author = '';
+                    this.price = '';
+                }
+
             }
         }
     })
 
-
     app.mount('#app')
-
-
 </script>
-
-
-
 
 </html>
