@@ -10,12 +10,28 @@
 <body>
     
     <div id="app">
+       
         <ul class="books">
+            <div class="header">
+                <h2>Shopping Cart</h2>
+                </div>
             <li v-for="book in books" :key="book">
                  {{book.name}} by {{book.author}}  price: {{book.price}}
                 <img @click="changeImg(book)" :src="book.isClicked?icons[1]:icons[0]" alt="like button">
+                <img @click="addToCart(book)" :src="cartIcon" alt="cart button">
             </li>
         </ul>
+        <ul class="cart">
+             <div class="header">
+                <h2>Shopping Cart</h2>
+                <h2>Tottal {{tottal}}$</h2>
+                </div>
+            <li v-for="book in cart" :key="book">
+                 {{book.name}} by {{book.author}}  price: {{book.price}}
+                <img @click="deleteFromCart(book)" :src="delIcon" alt="delBtn">
+            </li>
+        </ul>
+
     </div>
 
 </body>
@@ -52,13 +68,34 @@
                         price: 23.5,
                          isClicked:false
                     },
-                ]
+                ],
+                cart:[
+                
+                ],
+                delIcon: '/images/del.png',
+                cartIcon: '/images/shop.png',
+                tottal: 0
+
             }
         },
-
         methods: {
             changeImg(book){
                 book.isClicked = !book.isClicked;
+            },
+
+            deleteFromCart(book){
+                const currIndex = this.cart.indexOf(book);
+
+                if(currIndex!=-1){
+                    this.cart.splice(currIndex,1);
+                    this.tottal-=book.price;
+                }
+                
+            },
+
+            addToCart(book){
+                this.cart.push(book);
+                this.tottal+=book.price;
             }
         }
     })

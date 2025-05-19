@@ -76,10 +76,11 @@ h2{
 
 .books{
     background-color: rgb(8, 96, 203);
-    width: 520px;
+    width: 620px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 300px;
 }
 
 .books li{
@@ -93,6 +94,35 @@ h2{
     height: auto;
     width: auto;
     margin: 0;
+    cursor: pointer;
+}
+
+
+.cart{
+    width: 500px;
+    background-color: rgb(199, 196, 196);
+    border-radius: 10px;
+    box-shadow: 2px 3px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.cart li{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.cart li img{
+    height: auto;
+    width: auto;
+    margin: 0;
     margin-left: 10px;
     cursor: pointer;
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
 }
