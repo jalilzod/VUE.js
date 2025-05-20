@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <p>name: {{fullName}}</p>
+        <div>
+            <input v-model="firstN"  placeholder="Enter first name">
+            <input v-model="lastN"  placeholder="Enter last name">
+            <button @click="updateName">Submit</button>
+        </div>
+    </div>
+    
+
+</body>
+<script>
+    const app  = Vue.createApp({
+        data(){
+            return {
+                firstName: 'Ming',
+                lastName: 'Yuan',
+                firstN: '',
+                lastN: ''
+            }
+        },
+
+        computed: {
+            fullName(){
+                return this.firstName+' '+this.lastName;
+            }
+        },
+
+        methods:{
+            updateName(){
+                if(this.firstN&&this.lastN){
+                    this.firstName = this.firstN;
+                    this.lastName = this.lastN;
+                }else
+                {
+                    return;
+                }
+
+                this.firstN = '';
+                this.lastN = '';
+                
+            }
+        }
+    })
+
+    app.mount('#app')
+</script>
+
+
+</html>
