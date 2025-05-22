@@ -1,86 +1,110 @@
 <script setup>
-  import {ref,watch} from 'vue';
+import {ref} from 'vue'
+
+const userName = ref('');
+const userPassword = ref('');
+const userRole = ref('User');
+const users = ref([
+]);
 
 
-  const tasks = ref([
-    {
-      id:1,
-      title:'task 1',
-      done: false
-    },
-    {
-      id:2,
-      title:'task 1',
-      done: false
-    },
-    {
-      id:3,
-      title:'task 1',
-      done: false
-    },
-    {
-      id:4,
-      title:'task 1',
-      done: false
-    },
-
-  ]);
-
+const handleForm = ()=>{
   
-  const doneTask = (index)=>{
-    tasks.value.at(index).done = !tasks.value.at(index).done;
-    console.log('clicked...'+tasks.value.at(index).done);
-  }
+  users.value.push({
+    username: userName.value,
+    password: userPassword.value,
+    role: userRole.value
+  })
 
+
+  userName.value = '';
+  userPassword.value = '';
+  userRole.value = '';
+  
+  
+};
+
+
+const deleteUser = (index)=>{
+  users.value.splice(index,1);
+}
 
 </script>
 
 
 
+
 <template>
-  <ul class="task-table">
-    <li class="list" v-for="(task,index) in tasks" :key="index">
-        <span>{{ task.title }}</span>
-        <button @click="doneTask(index)" :class="{doneStyle: task.done}" >{{ task.done?'Undone':'Done' }}</button>
+
+
+<div>
+<form class="form-user" @submit.prevent="handleForm">
+  <input v-model="userName" type="text" placeholder="Username">
+  <input v-model="userPassword" type="password" placeholder="Password">
+  <label >Role</label>
+  <select v-model="userRole">
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <button type="submit">Submit</button>
+
+</form>
+
+<div>
+  <ul>
+    <li v-for="(us,index) in users" :key="index">
+      <span>{{ us.username }}</span>
+      <span>{{ us.password }}</span>
+      <span>{{ us.role }}</span>
+      <button @click="deleteUser(index)">Delete</button>
     </li>
   </ul>
+</div>
+</div>
+
+
 </template>
 
-
-
 <style scoped>
+.form-user{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(2, 50, 156);
+  border-radius: 10px;
+  gap: 5px;
+  margin-bottom: 50px;
+}
 
-  .task-table{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    gap: 10px;
-  }
+ul{
+  background: gray;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+  list-style: none;
+}
 
-  .list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+li{
+  display: flex;
+  justify-content: start;
+  align-items: center;
 
-  .list button{
-    background: rgb(5, 84, 180);
-    border: none;
-    color: white;
-    border-radius: 3px;
-    padding: 5px 10px;
-    transition: 0.2s;
-  }
+}
 
-  .list button:hover{
-    background: rgb(5, 75, 161);
-    color: gray;
-  }
+li span{
+  width: 130px;
+}
 
-  .doneStyle{
-    background: rgb(60, 61, 62)!important;
-    color: white!important;
-  }
+button{
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 5px;
+}
+
 
 </style>
