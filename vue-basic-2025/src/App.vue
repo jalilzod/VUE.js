@@ -1,108 +1,86 @@
 <script setup>
-import {ref,computed} from 'vue';
+  import {ref,watch} from 'vue';
 
 
-const textMsg = ref('');
+  const tasks = ref([
+    {
+      id:1,
+      title:'task 1',
+      done: false
+    },
+    {
+      id:2,
+      title:'task 1',
+      done: false
+    },
+    {
+      id:3,
+      title:'task 1',
+      done: false
+    },
+    {
+      id:4,
+      title:'task 1',
+      done: false
+    },
 
+  ]);
 
+  
+  const doneTask = (index)=>{
+    tasks.value.at(index).done = !tasks.value.at(index).done;
+    console.log('clicked...'+tasks.value.at(index).done);
+  }
 
-const lengthOfText = computed(()=>{
-  return textMsg.value.length;
-});
-
-const warningCondition = computed(()=>{
-  return textMsg.value.length>10;
-});
-
-const weakCondiiton = computed(()=>{
-  return textMsg.value.length<3;
-});
-
-const goodCondition = computed(()=>{
-  return textMsg.value.length>=3&&textMsg.value.length<=10;
-})
 
 </script>
 
+
+
 <template>
-  <div class="text-msg">
-    <div class="icons">
-      <div class="redBox"></div>
-      <p>Weak</p>
-      <div class="greenBox"></div>
-      <p>Good</p>
-      <div class="yellowBox"></div>
-      <p>Warning</p>
-    </div>
-    <div>
-      <input v-model="textMsg" type="text" placeholder="Enter a text...">
-      <p :class="{good: goodCondition,weak:weakCondiiton,warning:warningCondition}">length: {{ lengthOfText }}</p>
-    </div>
-  </div>
+  <ul class="task-table">
+    <li class="list" v-for="(task,index) in tasks" :key="index">
+        <span>{{ task.title }}</span>
+        <button @click="doneTask(index)" :class="{doneStyle: task.done}" >{{ task.done?'Undone':'Done' }}</button>
+    </li>
+  </ul>
 </template>
+
+
 
 <style scoped>
 
-.text-msg{
-  background-color: rgb(5, 53, 107);
-  width: 400px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.3);
-}
+  .task-table{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 10px;
+  }
 
-.text-msg input{
-  padding: 10px 15px;
-  border-radius: 5px;
-  outline: 0;
-  font-size: 16px;
-  border: 1px solid rgb(103, 4, 4);
-}
+  .list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.good{
-  color: green;
-}
+  .list button{
+    background: rgb(5, 84, 180);
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+    transition: 0.2s;
+  }
 
-.warning{
-  color: yellow;
-}
+  .list button:hover{
+    background: rgb(5, 75, 161);
+    color: gray;
+  }
 
-.weak{
-  color: red;
-}
-
-
-.icons{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.redBox{
-  background: red;
-  width: 10px;
-  height: 10px;
-}
-
-.greenBox{
-  background: rgb(14, 141, 3);
-  width: 10px;
-  height: 10px;
-  margin-left: 5px;
-}
-
-.yellowBox{
-  background: rgb(188, 208, 5);
-  width: 10px;
-  height: 10px;
-  margin-left: 5px;
-}
-
-
-
+  .doneStyle{
+    background: rgb(60, 61, 62)!important;
+    color: white!important;
+  }
 
 </style>
