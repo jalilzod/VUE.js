@@ -1,9 +1,9 @@
 <script setup>
-import Reactive from './components/Reactive.vue';
+import ComputedProp from './components/ComputedProp.vue';
 </script>
 
 <template>
   <div>
-   <Reactive />
+   <ComputedProp />
   </div>
 </template>
