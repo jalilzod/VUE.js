@@ -33,3 +33,34 @@ a,
     padding: 0 2rem;
   }
 }
+
+
+
+.delBtn{
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 5px;
+  transition: 0.2s;
+}
+
+.delBtn:hover{
+  color: gray;
+}
+
+
+.submitBtn{
+  background: rgb(31, 81, 246);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.submitBtn:hover{
+  color: gray;
+}
+
