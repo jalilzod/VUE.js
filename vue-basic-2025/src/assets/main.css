@@ -60,6 +60,20 @@ a,
   transition: 0.2s;
 }
 
+.simpleBtn{
+  background: rgb(31, 81, 246);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.simpleBtn:hover{
+  color: gray;
+}
+
 .submitBtn:hover{
   color: gray;
 }
