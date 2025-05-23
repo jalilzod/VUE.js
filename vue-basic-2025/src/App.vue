@@ -1,9 +1,9 @@
 <script setup>
-import Increment from './components/Increment.vue';
+import Reactive from './components/Reactive.vue';
 </script>
 
 <template>
   <div>
-   <Increment />
+   <Reactive />
   </div>
 </template>
