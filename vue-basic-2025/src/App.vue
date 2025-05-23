@@ -1,27 +1,30 @@
 <script setup>
-import StaticProps from './components/StaticProps.vue';
 import {ref} from 'vue';
+import EmitsEvent from './components/EmitsEvent.vue';
 
-const firstN = ref('Mingyuan');
-const lastN = ref('Yuan');
-let tmpN = ref('');
-let tmpF = ref('');
+const number = ref(0);
+const userName =  ref('');
+const userEmail =  ref('');
+const userPassword =  ref('');
 
 
-const changeName = ()=>{
-  firstN.value = tmpN.value; 
-  lastN.value = tmpF.value; 
-
-  console.log(tmpN.value+tmpF.value);
+const handleForm = (name,email,password)=>{
+    userName.value = name;
+    userEmail.value = email;
+    userPassword.value = password;
 }
+
 
 </script>
 
 <template>
-  <div>
-    <input type="text" placeholder="Enter f name" v-model="tmpN">
-    <input type="text" placeholder="Enter l name" v-model="tmpF">
-    <button @click="changeName">Change name</button>
-   <StaticProps :firstName="firstN" :lastName="lastN"/>
+  <div class="student">
+    <span>Number: {{ number }}</span>
+    <EmitsEvent  @formHandler="handleForm"/>
+
+    <span>{{ userName }}</span>
+    <span>{{ userEmail }}</span>
+    <span>{{ userPassword }}</span>
+
   </div>
 </template>
